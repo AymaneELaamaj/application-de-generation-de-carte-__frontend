@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Redal</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/home"
+            >login</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Affichier les Préfectures
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/carte">Rabat</a></li>
+            <li>
+              <a class="dropdown-item" routerLink="/sale">Salé</a>
+            </li>
+            <li><a class="dropdown-item" routerLink="/temara">Témara</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Affichier les arrondissement
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="/sidi_yahya_Zair"
+                >Centre sidi yahya Zair</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/Ain_Atig"
+                >Harhoura-Ain Atig</a
+              >
+            </li>
+
+            <li>
+              <a class="dropdown-item" routerLink="/Municipalite_de_Temara"
+                >Municipalité de Temara</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/skhirat">Skhirat 2</a>
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item mt-1">
+          <input type="file" (change)="onFileSelected($event)" />
+          <button (click)="onUpload()">Upload</button>
+        </li>
+
+        <p *ngIf="message">{{ message }}</p>
+        <div *ngIf="progress < 100 && isAdmin" class="progress-container">
+          <progress [value]="progress" max="100">{{ progress }}%</progress>
+        </div>
+      </ul>
+
+      <ul *ngIf="isAdmin" class="navbar-nav ms-auto">
+        <li class="nav-item mt-1">
+          <button class="btn btn-primary" (click)="signup()">Users</button>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item mt-1">
+          <button class="btn btn-primary" (click)="logout()">logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

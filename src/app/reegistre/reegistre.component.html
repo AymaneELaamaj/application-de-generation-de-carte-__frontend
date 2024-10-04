@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card col-md-6 offset-md-3 mt-2 shadow-lg border-0">
+    <div class="card-header bg-primary text-white text-center py-4">
+      <h2 class="text-uppercase mb-0">Create an Account</h2>
+    </div>
+    <div class="card-body p-5">
+      <form [formGroup]="registreform" (ngSubmit)="registre()">
+        <div class="form-group mb-3">
+          <label class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Username"
+            formControlName="username"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="role" class="form-label">Role</label>
+          <select
+            id="role"
+            formControlName="role"
+            class="form-control form-control-lg"
+          >
+            <option *ngFor="let role of roles" [value]="role">
+              {{ role }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control form-control-lg"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control form-control-lg"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label class="form-label">Repeat Password</label>
+          <input
+            type="password"
+            class="form-control form-control-lg"
+            placeholder="Repeat Password"
+            formControlName="repeatpassword"
+          />
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" value="" />
+          <label class="form-check-label">I agree to all statements</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">
+          Register
+        </button>
+        <p class="text-center text-muted mt-3">
+          Already have an account?
+          <a class="fw-bold text-primary" routerLink="/home"
+            ><u>Login here</u></a
+          >
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

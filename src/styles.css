@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Ajoutez ce code dans styles.css */
+@import "leaflet/dist/leaflet.css";
+

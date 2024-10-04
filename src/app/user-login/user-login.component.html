@@ -1,0 +1,45 @@
+<div class="container">
+  <div
+    class="col-md-6 offset-md-3 auth-container"
+    style="
+      background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+    "
+  >
+    <div class="card mt-5 shadow-lg border-0">
+      <div class="card-header text-center bg-primary text-white">
+        Authentification
+      </div>
+      <div class="card-body">
+        <form [formGroup]="userformgroup" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              placeholder="Entrer votre email"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Mot de passe</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="Entrer votre mot de passe"
+            />
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary btn-block">Connexion</button>
+            <button
+              class="btn btn-secondary btn-block"
+              routerLink="/user-registre"
+            >
+              Inscription
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

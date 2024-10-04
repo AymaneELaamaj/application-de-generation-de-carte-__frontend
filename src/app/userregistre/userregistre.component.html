@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="card col-md-6 offset-md-3 mt-2 shadow-lg border-0">
+    <div class="card-header bg-primary text-white text-center">
+      <h2 class="text-uppercase">Créer un compte</h2>
+    </div>
+
+    <div class="card-body p-5">
+      <form [formGroup]="registreform" (ngSubmit)="registre()">
+        <div class="mb-3">
+          <label class="form-label">Nom d'utilisateur</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nom d'utilisateur"
+            formControlName="username"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
+              registreform.get('email')?.invalid &&
+              (registreform.get('email')?.dirty ||
+                registreform.get('email')?.touched)
+            "
+            class="text-danger"
+          >
+            <div *ngIf="registreform.get('email')?.errors?.['required']">
+              L'email est requis.
+            </div>
+            <div *ngIf="registreform.get('email')?.errors?.['email']">
+              L'email doit être valide.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Mot de passe</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Mot de passe"
+            formControlName="password"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+        <p class="text-center text-muted mt-3">
+          Vous avez déjà un compte ?
+          <a class="fw-bold" routerLink="/user-login"
+            ><u>Connectez-vous ici</u></a
+          >
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
